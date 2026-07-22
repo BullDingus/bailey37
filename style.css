@@ -2003,12 +2003,85 @@ body {
 }
 
 }
-   @media (max-width:650px) {
+/* =========================
+   MOBILE REMOVE ENVELOPE GRAPHIC
+   KEEP MESSAGE + BUTTON
+========================= */
 
-    .envelope-container,
+@media (max-width:650px) {
+
+    /* Hide only the envelope background/shape */
     .envelope {
+        background: transparent !important;
+        box-shadow: none !important;
+        animation: none !important;
+    }
+
+
+    /* Remove flap */
+    .flap {
         display:none !important;
     }
+
+
+    /* Remove seal */
+    .seal {
+        display:none !important;
+    }
+
+
+    /* Keep the letter visible */
+    .letter {
+
+        position:relative !important;
+
+        width:90% !important;
+
+        max-width:360px;
+
+        left:auto !important;
+
+        top:auto !important;
+
+        margin:auto;
+
+        transform:none !important;
+
+        box-shadow:
+        0 15px 40px rgba(0,0,0,.12);
+
+    }
+
+
+    /* Keep button visible */
+    .letter button {
+
+        display:block;
+
+        width:90%;
+
+        margin:20px auto 0;
+
+    }
+
+
+    /* Let container center the message */
+
+    .envelope-container {
+
+        height:100vh;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        padding:20px;
+
+    }
+
+}
 
 }
 }
