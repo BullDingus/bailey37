@@ -1610,6 +1610,259 @@ body:after {
     min-height:130px;
 
 }
+/* =========================
+   MOBILE OPTIMIZATION FIX
+========================= */
 
+@media (max-width: 650px) {
+
+
+body {
+    overflow-x:hidden;
+}
+
+
+/* Container spacing */
+
+.container {
+    width:100%;
+    padding:20px 15px;
+}
+
+
+
+/* Envelope */
+
+.envelope-container {
+    height:auto;
+    min-height:500px;
+}
+
+
+.envelope {
+
+    width:90vw;
+    max-width:360px;
+
+    height:250px;
+
+}
+
+
+.letter {
+
+    width:85%;
+
+    left:7.5%;
+
+    padding:20px;
+
+}
+
+
+.letter p {
+
+    font-size:14px;
+
+}
+
+
+
+.letter button {
+
+    font-size:14px;
+
+    padding:12px 20px;
+
+}
+
+
+
+/* =========================
+   MOBILE FLOWER GRID
+========================= */
+
+
+.bouquet-wrapper {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.bouquet {
+
+    width:100%;
+
+    height:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:15px;
+
+    transform:none;
+
+    margin:20px auto;
+
+}
+
+
+
+/* Hide stem/leaves on mobile */
+
+.stem,
+.leaves {
+
+    display:none;
+
+}
+
+
+
+/* Reset flower positions */
+
+.bouquet .flower,
+.flower-1,
+.flower-2,
+.flower-3,
+.flower-4,
+.flower-5,
+.flower-6,
+.flower-7,
+.flower-8,
+.flower-9,
+.flower-10,
+.flower-11,
+.flower-12 {
+
+
+    position:relative;
+
+    top:auto;
+
+    left:auto;
+
+    right:auto;
+
+
+    width:95px;
+
+    height:95px;
+
+
+    margin:auto;
+
+
+    font-size:32px;
+
+
+}
+
+
+
+/* Flower labels */
+
+.bouquet .flower span {
+
+    font-size:9px;
+
+    width:70px;
+
+    text-align:center;
+
+}
+
+
+
+/* Selected flowers */
+
+.bouquet .flower.selected {
+
+    transform:
+    scale(1.08);
+
+}
+
+
+
+/* Calendar */
+
+#calendarSection {
+
+    width:100%;
+
+    padding:20px;
+
+}
+
+
+
+.times {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+
+.time {
+
+    width:100%;
+
+    font-size:14px;
+
+}
+
+
+
+/* Inputs */
+
+
+.message-box {
+
+    width:100%;
+
+}
+
+
+.message-box input,
+.message-box textarea {
+
+    font-size:15px;
+
+}
+
+
+
+/* Confirmation */
+
+.confirmation-card {
+
+    width:90%;
+
+    padding:25px;
+
+}
+
+
+.confirmation-card h1 {
+
+    font-size:3rem;
+
+}
+
+
+}
 }
 }
