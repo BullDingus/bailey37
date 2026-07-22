@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise 🌸</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+
+<body>
+
+<div id="petals"></div>
+
+<div class="container">
+
+<div id="envelope" class="envelope-container">
+
+    <div class="envelope">
+
+        <div class="flap"></div>
+
+        <div class="seal">
+            ❤
+        </div>
+
+
+        <div class="letter">
+
+            <h1>
+                Hi Bailey 🌸
+            </h1>
+
+
+            <p>
+                I've been wanting to ask you something...
+                <br><br>
+
+                Life is always a little more exciting
+                when shared with someone special.
+                <br><br>
+
+                So...
+            </p>
+
+
+            <h2>
+                Would you let me take you on a date for real this <time datetime=""></time>? ❤️
+            </h2>
+
+
+            <button id="openBouquet">
+                Open My Surprise 💌
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<section id="bouquetSection">
+
+<h1>Choose Everything That Sounds Fun 💐</h1>
+
+<p>You can pick as many flowers as you'd like.</p>
+
+<div class="bouquet-wrapper">
+
+    <div class="bouquet">
+
+        <div class="stem"></div>
+
+        <div class="leaves leaf-left"></div>
+        <div class="leaves leaf-right"></div>
+
+
+        <div class="flower flower-1" data-name="Georgetown Waterfront Walk">
+            🌸
+            <span>Georgetown Walk</span>
+        </div>
+
+
+        <div class="flower flower-2" data-name="Smithsonian Museum">
+            🌼
+            <span>Smithsonian</span>
+        </div>
+
+
+        <div class="flower flower-3" data-name="The Wharf Dinner">
+            🌺
+            <span>The Wharf</span>
+        </div>
+
+
+        <div class="flower flower-4" data-name="Great Falls Hike">
+            🌻
+            <span>Great Falls</span>
+        </div>
+
+
+        <div class="flower flower-5" data-name="TopGolf">
+            🪻
+            <span>TopGolf</span>
+        </div>
+
+
+        <div class="flower flower-6" data-name="Mini Golf">
+            🌷
+            <span>Mini Golf</span>
+        </div>
+
+
+        <div class="flower flower-7" data-name="National Harbor">
+            🌹
+            <span>National Harbor</span>
+        </div>
+
+
+        <div class="flower flower-8" data-name="Winery">
+            💐
+            <span>Winery</span>
+        </div>
+
+
+        <div class="flower flower-9" data-name="Comedy Show">
+            🌸
+            <span>Comedy</span>
+        </div>
+
+
+        <div class="flower flower-10" data-name="Escape Room">
+            🌹
+            <span>Escape Room</span>
+        </div>
+
+
+        <div class="flower flower-11" data-name="Candlelight Concert">
+            🌷
+            <span>Concert</span>
+        </div>
+
+
+        <div class="flower flower-12" data-name="Surprise Me">
+            ❤️
+            <span>Surprise Me</span>
+        </div>
+
+
+    </div>
+
+</div>
+
+<button id="calendarButton">
+
+🌸 Pick Our Date
+
+</button>
+
+<div id="calendarSection">
+
+<h2>Select a Date</h2>
+
+<input id="datePicker">
+
+<h2>Best Time</h2>
+
+<div class="times">
+
+<button class="time">☀ Morning</button>
+
+<button class="time">🌤 Afternoon</button>
+
+<button class="time">🌇 Sunset</button>
+
+<button class="time">🌙 Evening</button>
+
+</div>
+
+<h2>Favorite Dessert 🍰</h2>
+
+<div class="options">
+
+<label><input type="checkbox"> Ice Cream</label>
+
+<label><input type="checkbox"> Cheesecake</label>
+
+<label><input type="checkbox"> Cookies</label>
+
+<label><input type="checkbox"> Chocolate</label>
+
+</div>
+<h2>Tell Me Something 💌</h2>
+
+
+<div class="message-box">
+
+
+<input 
+type="text"
+id="guestName"
+placeholder="Your name ❤️">
+
+
+<textarea
+id="guestMessage"
+placeholder="Leave me a little note..."
+rows="4">
+</textarea>
+
+
+</div>
+
+<h2>Music 🎵</h2>
+
+<div class="options">
+
+<label><input type="checkbox"> R&B</label>
+
+<label><input type="checkbox"> Hip-Hop</label>
+
+<label><input type="checkbox"> Jazz</label>
+
+<label><input type="checkbox"> Pop</label>
+
+</div>
+
+<button id="submitButton">
+
+Send My Answer 💖
+
+</button>
+
+</div>
+
+</section>
+
+<div id="celebration">
+
+
+<div class="confirmation-card">
+
+
+<h1>
+❤️ It's A Date ❤️
+</h1>
+
+
+<p>
+I can't wait to spend time with you.
+</p>
+
+
+
+<div class="summary">
+
+
+<h2>Your Date Plan 🌸</h2>
+
+
+<p>
+📅 <span id="finalDate">
+</span>
+</p>
+
+
+<p>
+🌙 <span id="finalTime">
+</span>
+</p>
+
+
+<p>
+💐 <span id="finalActivities">
+</span>
+</p>
+
+<p>
+💌 <span id="finalMessage"></span>
+</p>
+
+</div>
+
+
+
+<h2>
+See you soon ✨
+</h2>
+
+
+<div class="heart-animation">
+❤️
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+<div class="butterfly butterfly-1">🦋</div>
+<div class="butterfly butterfly-2">🦋</div>
+<div class="butterfly butterfly-3">🦋</div>
+
+<div id="sparkles"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
