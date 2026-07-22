@@ -1,143 +1,545 @@
-/* =========================================
-   DATE INVITATION - COMPLETE STYLE SHEET
-========================================= */
-
+/* =========================
+   GLOBAL STYLES
+========================= */
 
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-
-
-html {
-    scroll-behavior:smooth;
-}
-
 
 body {
-
     margin:0;
-
     min-height:100vh;
 
     background:
-    linear-gradient(
-        135deg,
-        #fff0f5,
-        #fff8f2,
-        #eee7ff
+    radial-gradient(
+        circle at top,
+        #ffe6f0 0%,
+        #fff5f7 35%,
+        #eadff5 100%
     );
+
+    background-attachment:fixed;
 
     font-family:'Poppins', sans-serif;
 
     color:#5a3d45;
 
     overflow-x:hidden;
-
 }
-
 
 
 .container {
-
-    width:100%;
-
-    max-width:1000px;
-
-    margin:auto;
-
-    padding:30px 20px;
-
-    text-align:center;
-
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
 }
-
 
 
 h1,
 h2 {
-
-    font-family:'Great Vibes', cursive;
-
-    color:#b35c7a;
-
+    font-family: 'Great Vibes', cursive;
+    color: #b35c7a;
 }
 
 
 h1 {
-
-    font-size:4rem;
-
+    font-size: 3.5rem;
 }
 
 
 h2 {
-
-    font-size:2.5rem;
-
+    font-size: 2.2rem;
 }
 
 
-
-/* =========================================
-   PETALS
-========================================= */
-
+/* =========================
+   FLOATING PETALS
+========================= */
 
 #petals {
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-
-    z-index:1;
-
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 
 .petal {
-
-    position:absolute;
-
-    animation:fall linear infinite;
-
+    position: absolute;
+    font-size: 25px;
+    animation: fall linear infinite;
 }
 
 
 @keyframes fall {
 
     from {
-
         transform:
         translateY(-100px)
         rotate(0deg);
-
     }
 
-
     to {
-
         transform:
         translateY(110vh)
         rotate(360deg);
-
     }
 
 }
 
 
 
-/* =========================================
+/* =========================
    ENVELOPE
-========================================= */
+========================= */
+
+
+.envelope {
+
+    background:#fffaf5;
+    width: 90%;
+    max-width:600px;
+    margin:80px auto;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.15);
+
+    position:relative;
+
+    animation: float 4s infinite ease-in-out;
+
+}
+
+
+@keyframes float {
+
+    50% {
+        transform:translateY(-10px);
+    }
+
+}
+
+
+
+.heart {
+
+    width:70px;
+    height:70px;
+
+    background:#d87093;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+    margin:-75px auto 20px;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    50% {
+        transform:scale(1.15);
+    }
+
+}
+
+
+.letter button,
+#calendarButton,
+#submitButton {
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #d87093,
+    #f7a7c0
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+button:hover {
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 10px 25px rgba(216,112,147,.35);
+
+}
+
+
+
+/* =========================
+   BOUQUET
+========================= */
+
+
+#bouquetSection {
+
+    display:none;
+
+    animation:fadeIn 1s;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to {
+        opacity:1;
+    }
+
+}
+
+
+
+.bouquet {
+
+    margin:40px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    max-width:650px;
+
+    position:relative;
+
+}
+
+
+
+.flower {
+
+    width:120px;
+
+    height:120px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.12);
+
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+
+
+.flower span {
+
+    font-size:12px;
+
+    margin-top:8px;
+
+    color:#8b6670;
+
+}
+
+
+
+.flower:hover {
+
+    transform:
+    translateY(-10px)
+    rotate(5deg);
+
+}
+
+
+
+.flower.selected {
+
+    background:#ffe0eb;
+
+    transform:
+    scale(1.15);
+
+    box-shadow:
+    0 0 30px #f7a7c0;
+
+}
+
+
+
+.flower.selected::after {
+
+    content:"✨";
+
+    position:absolute;
+
+    top:-20px;
+
+    animation:sparkle 1s infinite;
+
+}
+
+
+@keyframes sparkle {
+
+    50% {
+        transform:scale(1.4);
+    }
+
+}
+
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+
+#calendarSection {
+
+    display:none;
+
+    margin-top:40px;
+
+    background:#fffaf5;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+#datePicker {
+
+    padding:15px;
+
+    border-radius:20px;
+
+    border:2px solid #f2b6c9;
+
+    font-size:18px;
+
+}
+
+
+
+/* =========================
+   TIME BUTTONS
+========================= */
+
+
+.times {
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+
+
+.time {
+
+    padding:15px 25px;
+
+    border-radius:30px;
+
+    border:none;
+
+    background:#f8d7e3;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.time.active {
+
+    background:#d87093;
+
+    color:white;
+
+}
+
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+
+.options {
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin:20px;
+
+}
+
+
+.options label {
+
+    background:white;
+
+    padding:12px 20px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+/* =========================
+   CELEBRATION
+========================= */
+
+
+#celebration {
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ffe4ec,
+    #fff7f2
+    );
+
+    z-index:20;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    padding:30px;
+
+}
+
+
+#celebration h1 {
+
+    font-size:5rem;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+    h1 {
+        font-size:2.8rem;
+    }
+
+
+    .flower {
+
+        width:95px;
+        height:95px;
+
+        font-size:35px;
+
+    }
+
+
+    .container {
+
+        padding:15px;
+
+    }
+/* =========================
+   REAL ENVELOPE ANIMATION
+========================= */
 
 
 .envelope-container {
 
-    height:650px;
+    height:600px;
 
     display:flex;
 
@@ -151,18 +553,20 @@ h2 {
 
 .envelope {
 
-    width:430px;
+    width:420px;
 
     height:280px;
 
     background:#f8d7da;
 
-    border-radius:20px;
-
     position:relative;
 
+    border-radius:15px;
+
     box-shadow:
-    0 25px 60px rgba(0,0,0,.15);
+    0 25px 60px rgba(0,0,0,.18);
+
+    overflow:visible;
 
 }
 
@@ -176,9 +580,13 @@ h2 {
 
     left:0;
 
-    border-left:215px solid transparent;
+    width:0;
 
-    border-right:215px solid transparent;
+    height:0;
+
+    border-left:210px solid transparent;
+
+    border-right:210px solid transparent;
 
     border-top:150px solid #f2b6c9;
 
@@ -186,7 +594,7 @@ h2 {
 
     transition:1s;
 
-    z-index:5;
+    z-index:4;
 
 }
 
@@ -194,7 +602,8 @@ h2 {
 
 .envelope.open .flap {
 
-    transform:rotateX(180deg);
+    transform:
+    rotateX(180deg);
 
 }
 
@@ -214,11 +623,11 @@ h2 {
 
     height:65px;
 
-    border-radius:50%;
-
     background:#c94c78;
 
     color:white;
+
+    border-radius:50%;
 
     display:flex;
 
@@ -228,7 +637,9 @@ h2 {
 
     font-size:30px;
 
-    z-index:10;
+    z-index:6;
+
+    cursor:pointer;
 
 }
 
@@ -238,7 +649,9 @@ h2 {
 
     position:absolute;
 
-    width:370px;
+    background:#fffaf5;
+
+    width:360px;
 
     left:30px;
 
@@ -246,13 +659,11 @@ h2 {
 
     padding:30px;
 
-    background:white;
-
-    border-radius:20px;
+    border-radius:15px;
 
     transition:1s;
 
-    z-index:3;
+    z-index:2;
 
 }
 
@@ -263,61 +674,21 @@ h2 {
     transform:
     translateY(-180px);
 
-}
-
-
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-
-button {
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:15px 30px;
-
-    border-radius:50px;
-
-    font-size:16px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #d87093,
-        #f7a7c0
-    );
-
-    color:white;
-
-    transition:.3s;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.2);
 
 }
 
 
+.envelope.open .seal {
 
-button:hover {
-
-    transform:scale(1.05);
-
-}
-
-
-
-/* =========================================
-   BOUQUET DESKTOP
-========================================= */
-
-
-#bouquetSection {
-
-    display:none;
+    opacity:0;
 
 }
 
+/* =========================
+   BOUQUET REDESIGN
+========================= */
 
 
 .bouquet-wrapper {
@@ -325,6 +696,8 @@ button:hover {
     display:flex;
 
     justify-content:center;
+
+    margin:50px auto;
 
 }
 
@@ -338,9 +711,17 @@ button:hover {
 
     position:relative;
 
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
 
 
+
+/* FLOWER STEM */
 
 .stem {
 
@@ -348,31 +729,34 @@ button:hover {
 
     bottom:20px;
 
-    left:50%;
+    width:40px;
 
-    width:45px;
+    height:260px;
 
-    height:250px;
-
-    background:#78a65b;
+    background:#7aa66b;
 
     border-radius:50px;
 
+    z-index:0;
+
 }
 
+
+
+/* LEAVES */
 
 
 .leaves {
 
     position:absolute;
 
-    width:130px;
+    width:120px;
 
     height:60px;
 
     background:#8bb174;
 
-    border-radius:100%;
+    border-radius:100% 0;
 
 }
 
@@ -382,7 +766,10 @@ button:hover {
 
     left:170px;
 
-    bottom:150px;
+    bottom:160px;
+
+    transform:
+    rotate(-35deg);
 
 }
 
@@ -392,22 +779,26 @@ button:hover {
 
     right:170px;
 
-    bottom:150px;
+    bottom:120px;
+
+    transform:
+    rotate(35deg)
+    scaleX(-1);
 
 }
 
 
 
-.flower {
+/* FLOWERS */
 
 
-    position:absolute;
-
+.bouquet .flower {
 
     width:120px;
 
-    height:120px;
+    min-height:120px;
 
+    padding:10px;
 
     background:white;
 
@@ -416,41 +807,56 @@ button:hover {
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
+    flex-direction:column;
+
+
+    font-size:40px;
+
 
     cursor:pointer;
 
+    z-index:10;
 
-    font-size:45px;
+
+    text-align:center;
 
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
+    0 10px 30px rgba(0,0,0,.12);
 
 
     transition:.35s;
 
+}
 
-    z-index:5;
+
+.bouquet .flower span {
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    line-height:1.2;
+
+    width:90px;
 
 }
 
 
+.bouquet .flower span {
 
-.flower span {
-
-    font-size:11px;
+    pointer-events:none;
 
 }
 
 
-
-.flower:hover {
+.bouquet .flower:hover {
 
     transform:
     translateY(-15px)
@@ -459,98 +865,679 @@ button:hover {
 }
 
 
-
-.flower.selected {
+.bouquet .flower.selected {
 
     background:#ffd6e5;
 
-    box-shadow:
-    0 0 30px #f7a7c0;
-
-}
+    border-color:#d87093;
 
 
+    transform:
+    scale(1.2);
 
-/* Flower positions */
-
-
-.flower-1 {top:30px;left:240px;}
-.flower-2 {top:90px;left:100px;}
-.flower-3 {top:90px;right:100px;}
-.flower-4 {top:190px;left:40px;}
-.flower-5 {top:190px;right:40px;}
-.flower-6 {top:280px;left:140px;}
-.flower-7 {top:280px;right:140px;}
-.flower-8 {top:350px;left:240px;}
-.flower-9 {top:40px;left:390px;}
-.flower-10 {top:40px;left:20px;}
-.flower-11 {top:320px;right:30px;}
-.flower-12 {top:320px;left:30px;}
-
-
-
-/* =========================================
-   CALENDAR
-========================================= */
-
-
-#calendarSection {
-
-    display:none;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:25px;
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,.1);
+
+    0 0 40px #f7a7c0;
 
 }
 
 
 
-#datePicker {
+.bouquet .flower span {
 
-    padding:15px;
-
-    border-radius:20px;
-
-    border:2px solid #f7c4d5;
+    font-size:11px;
 
 }
 
 
 
-.times {
+/* POSITIONS */
 
-    display:flex;
 
-    gap:15px;
+.flower-1 {
 
-    justify-content:center;
+    top:40px;
+    left:220px;
 
-    flex-wrap:wrap;
+}
+
+
+.flower-2 {
+
+    top:100px;
+    left:100px;
 
 }
 
 
 
-.time.active {
+.flower-3 {
 
-    background:#b35c7a;
+    top:100px;
+    right:100px;
 
 }
 
 
 
-/* =========================================
-   MESSAGE BOX
-========================================= */
+.flower-4 {
+
+    top:170px;
+    left:40px;
+
+}
+
+
+
+.flower-5 {
+
+    top:170px;
+    right:40px;
+
+}
+
+
+
+.flower-6 {
+
+    top:240px;
+    left:130px;
+
+}
+
+
+
+.flower-7 {
+
+    top:240px;
+    right:130px;
+
+}
+
+
+
+.flower-8 {
+
+    top:320px;
+    left:210px;
+
+}
+
+
+
+.flower-9 {
+
+    top:40px;
+    left:370px;
+
+}
+
+
+
+.flower-10 {
+
+    top:40px;
+    left:20px;
+
+}
+
+
+
+.flower-11 {
+
+    top:300px;
+    right:40px;
+
+}
+
+
+
+.flower-12 {
+
+    top:300px;
+    left:40px;
+
+}
+
+
+
+/* BLOOM EFFECT */
+
+
+.bouquet .flower:hover {
+
+    transform:
+    translateY(-20px)
+    scale(1.15);
+
+}
+
+/* =========================
+   BUTTERFLIES
+========================= */
+
+
+.butterfly {
+
+    position:fixed;
+
+    font-size:40px;
+
+    z-index:5;
+
+    pointer-events:none;
+
+}
+
+
+.butterfly-1 {
+
+    top:20%;
+
+    left:-100px;
+
+    animation:
+    flyAcross 18s infinite linear;
+
+}
+
+
+
+.butterfly-2 {
+
+    top:60%;
+
+    left:-100px;
+
+    animation:
+    flyAcross 25s infinite linear;
+
+    animation-delay:5s;
+
+}
+
+
+
+.butterfly-3 {
+
+    top:40%;
+
+    left:-100px;
+
+    animation:
+    flyAcross 22s infinite linear;
+
+    animation-delay:10s;
+
+}
+
+
+
+@keyframes flyAcross {
+
+
+0% {
+
+    transform:
+    translateX(-100px)
+    translateY(0)
+    rotate(0deg);
+
+}
+
+
+50% {
+
+    transform:
+    translateX(50vw)
+    translateY(-80px)
+    rotate(20deg);
+
+}
+
+
+100% {
+
+    transform:
+    translateX(110vw)
+    translateY(50px)
+    rotate(-20deg);
+
+}
+
+
+}
+
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+
+.sparkle {
+
+
+position:absolute;
+
+font-size:20px;
+
+animation:
+
+sparkleFloat 2s forwards;
+
+
+}
+
+
+
+@keyframes sparkleFloat {
+
+
+from {
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+
+to {
+
+opacity:0;
+
+transform:
+translateY(-100px)
+scale(2);
+
+}
+
+
+}
+
+
+
+/* =========================
+   MOUSE FLOWER TRAIL
+========================= */
+
+
+.cursor-flower {
+
+position:fixed;
+
+pointer-events:none;
+
+font-size:22px;
+
+animation:
+
+fadeFlower 1s forwards;
+
+z-index:100;
+
+
+}
+
+
+
+@keyframes fadeFlower {
+
+
+from {
+
+opacity:1;
+
+transform:
+scale(1)
+rotate(0deg);
+
+}
+
+
+to {
+
+opacity:0;
+
+transform:
+scale(2)
+translateY(-40px)
+rotate(180deg);
+
+}
+
+
+}
+
+
+
+/* =========================
+   NIGHT GLOW EFFECT
+========================= */
+
+
+body::before {
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(
+
+circle at top,
+
+rgba(255,200,220,.35),
+
+transparent 60%
+
+);
+
+
+pointer-events:none;
+
+}
+
+/* =========================
+   FINAL CONFIRMATION CARD
+========================= */
+
+
+#celebration {
+
+
+background:
+
+linear-gradient(
+135deg,
+#ffe6ef,
+#fff8f1
+);
+
+
+}
+
+
+
+.confirmation-card {
+
+
+background:white;
+
+
+width:90%;
+
+max-width:600px;
+
+
+padding:45px;
+
+
+border-radius:35px;
+
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.15);
+
+
+animation:
+
+popIn 1s;
+
+
+}
+
+
+
+@keyframes popIn {
+
+
+from {
+
+transform:
+
+scale(.5)
+translateY(100px);
+
+
+opacity:0;
+
+
+}
+
+
+to {
+
+
+transform:
+
+scale(1);
+
+
+opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+.summary {
+
+
+background:#fff1f5;
+
+
+padding:25px;
+
+
+border-radius:25px;
+
+
+margin:30px 0;
+
+
+}
+
+
+
+.summary p {
+
+
+font-size:18px;
+
+
+}
+
+
+
+.heart-animation {
+
+
+font-size:70px;
+
+
+animation:
+
+heartbeat 1.5s infinite;
+
+
+}
+
+
+
+@keyframes heartbeat {
+
+
+50% {
+
+
+transform:
+
+scale(1.3);
+
+
+}
+
+
+}
+
+
+.bouquet .flower.selected {
+
+
+    animation:
+
+    bloom .8s forwards;
+
+
+}
+
+
+
+@keyframes bloom {
+
+
+    50% {
+
+        transform:
+        scale(1.35)
+        rotate(10deg);
+
+    }
+
+
+    100% {
+
+        transform:
+        scale(1.15);
+
+    }
+
+
+}
+
+
+
+@keyframes sway {
+
+
+    50% {
+
+        transform:
+        rotate(4deg);
+
+    }
+
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:650px){
+
+
+.bouquet {
+
+    transform:
+    scale(.65);
+
+    margin-top:-50px;
+
+}
+
+body:after {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+    circle,
+    rgba(255,255,255,.5),
+    transparent 60%
+    );
+
+    z-index:-1;
+
+
+}
+/* Prevent bouquet items from touching */
+
+.bouquet .flower {
+
+    margin:5px;
+
+}
+@media(max-width:500px){
+
+
+.envelope {
+
+    width:330px;
+
+    height:240px;
+
+}
+
+
+
+.letter {
+
+    width:280px;
+
+    left:25px;
+
+    padding:20px;
+
+}
+
+
+
+.letter h1 {
+
+    font-size:2.2rem;
+
+}
+
+
+.letter h2 {
+
+    font-size:1.5rem;
+
+}
+
+
+}
+
+/* =========================
+   NAME + MESSAGE FORM
+========================= */
 
 
 .message-box {
+
+    width:100%;
 
     max-width:450px;
 
@@ -560,7 +1547,7 @@ button:hover {
 
     flex-direction:column;
 
-    gap:15px;
+    gap:20px;
 
 }
 
@@ -571,99 +1558,93 @@ button:hover {
 
     width:100%;
 
-    padding:18px;
+    padding:18px 22px;
 
-    border-radius:20px;
+    border-radius:25px;
 
     border:2px solid #f7c4d5;
 
+    background:#fffafc;
+
+    color:#5a3d45;
+
+    font-family:'Poppins', sans-serif;
+
     font-size:16px;
 
-}
+    outline:none;
 
+    resize:none;
 
-
-/* =========================================
-   CONFIRMATION
-========================================= */
-
-
-#celebration {
-
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-    135deg,
-    #ffe5ef,
-    #fff7f0
-    );
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:50;
+    transition:.3s;
 
 }
 
 
 
-.confirmation-card {
+.message-box input::placeholder,
+.message-box textarea::placeholder {
 
-    background:white;
-
-    width:90%;
-
-    max-width:600px;
-
-    padding:40px;
-
-    border-radius:30px;
+    color:#c58a9e;
 
 }
 
 
 
-/* =========================================
-   MOBILE VERSION
-========================================= */
+.message-box input:focus,
+.message-box textarea:focus {
+
+    border-color:#d87093;
+
+    box-shadow:
+
+    0 0 20px rgba(216,112,147,.25);
+
+    transform:translateY(-2px);
+
+}
 
 
-@media(max-width:650px){
+.message-box textarea {
 
+    min-height:130px;
+
+}
+
+
+/* =========================
+   MOBILE OPTIMIZATION FIX
+========================= */
+
+@media (max-width: 650px) {
+
+
+body {
+    overflow-x:hidden;
+}
+
+
+/* Container spacing */
 
 .container {
-
-    padding:15px;
-
-}
-
-
-h1 {
-
-    font-size:2.8rem;
-
-}
-
-
-h2 {
-
-    font-size:2rem;
-
+    width:100%;
+    padding:20px 15px;
 }
 
 
 
 /* Envelope */
 
+.envelope-container {
+    height:auto;
+    min-height:500px;
+}
+
+
 .envelope {
 
     width:90vw;
+    max-width:360px;
 
     height:250px;
 
@@ -672,17 +1653,48 @@ h2 {
 
 .letter {
 
-    width:82%;
+    width:85%;
 
-    left:9%;
+    left:7.5%;
 
     padding:20px;
 
 }
 
 
+.letter p {
 
-/* Bouquet becomes cards */
+    font-size:14px;
+
+}
+
+
+
+.letter button {
+
+    font-size:14px;
+
+    padding:12px 20px;
+
+}
+
+
+
+/* =========================
+   MOBILE FLOWER GRID
+========================= */
+
+
+.bouquet-wrapper {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
 
 .bouquet {
 
@@ -693,12 +1705,19 @@ h2 {
     display:grid;
 
     grid-template-columns:
-    repeat(2,1fr);
+    repeat(3, 1fr);
 
-    gap:20px;
+    gap:15px;
+
+    transform:none;
+
+    margin:20px auto;
 
 }
 
+
+
+/* Hide stem/leaves on mobile */
 
 .stem,
 .leaves {
@@ -709,7 +1728,9 @@ h2 {
 
 
 
-.flower,
+/* Reset flower positions */
+
+.bouquet .flower,
 .flower-1,
 .flower-2,
 .flower-3,
@@ -733,16 +1754,53 @@ h2 {
     right:auto;
 
 
-    width:130px;
+    width:95px;
 
-    height:130px;
+    height:95px;
 
 
     margin:auto;
 
 
-    font-size:35px;
+    font-size:32px;
 
+
+}
+
+
+
+/* Flower labels */
+
+.bouquet .flower span {
+
+    font-size:9px;
+
+    width:70px;
+
+    text-align:center;
+
+}
+
+
+
+/* Selected flowers */
+
+.bouquet .flower.selected {
+
+    transform:
+    scale(1.08);
+
+}
+
+
+
+/* Calendar */
+
+#calendarSection {
+
+    width:100%;
+
+    padding:20px;
 
 }
 
@@ -750,7 +1808,12 @@ h2 {
 
 .times {
 
-    flex-direction:column;
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:10px;
 
 }
 
@@ -759,30 +1822,188 @@ h2 {
 
     width:100%;
 
+    font-size:14px;
+
+}
+
+
+
+/* Inputs */
+
+
+.message-box {
+
+    width:100%;
+
+}
+
+
+.message-box input,
+.message-box textarea {
+
+    font-size:15px;
+
+}
+
+
+
+/* Confirmation */
+
+.confirmation-card {
+
+    width:90%;
+
+    padding:25px;
+
+}
+
+
+.confirmation-card h1 {
+
+    font-size:3rem;
+
+}
+
+
+}
+
+/* =========================================
+   FINAL MOBILE OPENING PAGE FIX
+========================================= */
+
+@media (max-width:650px){
+
+
+/* First screen spacing */
+
+.envelope-container {
+
+    height:100vh;
+
+    min-height:720px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:center;
+
+    padding-top:80px;
+
+}
+
+
+
+/* Envelope */
+
+.envelope {
+
+    width:340px;
+
+    height:220px;
+
+    position:relative;
+
+}
+
+
+
+/* Letter sits inside envelope */
+
+.letter {
+
+    width:300px;
+
+    left:20px;
+
+    top:20px;
+
+    padding:25px 18px;
+
+    position:absolute;
+
+    z-index:2;
+
+}
+
+
+
+/* Keep flap on top */
+
+.flap {
+
+    z-index:5;
+
+}
+
+
+
+/* Keep seal visible */
+
+.seal {
+
+    z-index:10;
+
+}
+
+
+
+/* Opening animation */
+
+.envelope.open .letter {
+
+    transform:
+    translateY(-170px);
+
+}
+
+
+
+/* Text scaling */
+
+.letter h1 {
+
+    font-size:2.8rem;
+
+}
+
+
+.letter h2 {
+
+    font-size:1.8rem;
+
+    line-height:1.2;
+
+}
+
+
+.letter p {
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+
+
+/* Button */
+
+.letter button {
+
+    width:90%;
+
+    margin-top:15px;
+
+    font-size:14px;
+
+    padding:14px;
+
 }
 
 
 
 }
 
-
-
-@media(max-width:390px){
-
-
-.bouquet {
-
-    grid-template-columns:1fr;
-
 }
-
-
-.flower {
-
-    width:150px;
-
-    height:150px;
-
-}
-
 }
